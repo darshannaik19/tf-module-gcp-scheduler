@@ -25,6 +25,7 @@ resource "google_cloud_scheduler_job" "job" {
   schedule         = try(each.value.schedule, null)
   time_zone        = try(each.value.time_zone, null)
   attempt_deadline = try(each.value.attempt_deadline, null)
+  paused           = try(each.value.paused, null)
 
   dynamic "pubsub_target" {
     for_each = lookup(each.value, "pubsub_target", null) != null ? [each.value.pubsub_target] : []

@@ -17,6 +17,7 @@ variable "scheduled_jobs" {
       schedule         = optional(string)
       time_zone        = optional(string)
       attempt_deadline = optional(string)
+      paused           = optional(bool)
 
       pubsub_target = optional(object({
         topic_name = optional(string)
